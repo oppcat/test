@@ -8,8 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
+
+#import "MCTabViewController.h"
+
 @interface PAAppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 
+
+@property (strong, nonatomic) MCTabViewController *tabBarController;
 @end

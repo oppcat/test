@@ -8,10 +8,37 @@
 
 #import "PAAppDelegate.h"
 
+#import "PAViewController1.h"
+
+#import "PAViewController2.h"
+
+#import "PAViewController3.h"
+
+#import "PAViewController4.h"
+
+
+
 @implementation PAAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    
+    PAViewController1 *walletNavigationController=[[PAViewController1 alloc]init];
+    
+    PAViewController2 *accountBookNavigationController=[[PAViewController2 alloc]init];
+    
+    PAViewController3 *assetNavigationController=[[PAViewController3 alloc]init];
+    
+    PAViewController4 *personalNavigationController=[[PAViewController4 alloc]init];
+    
+    
+    MCTabViewController *tabbarController =[[MCTabViewController alloc]initWithNibName:@"MCTabViewController" bundle:nil];
+    self.tabBarController =tabbarController;
+    tabbarController.viewControllers = @[walletNavigationController, accountBookNavigationController, assetNavigationController, personalNavigationController];
+    
+    self.window.rootViewController =_tabBarController;
+    
+    [self.window makeKeyAndVisible];
     // Override point for customization after application launch.
     return YES;
 }
