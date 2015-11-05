@@ -53,9 +53,7 @@ static PAMainThreadNotificationCenter *_instance=nil;
 
 - (void) forwardInvocation:(NSInvocation *)anInvocation
 {
-    dispatch_queue_t que = dispatch_get_current_queue();
-    
-    if (que == dispatch_get_main_queue()) {
+    if ([NSThread isMainThread]) {
         [anInvocation invokeWithTarget:_defaultCenter];
     }
     else
